@@ -1,16 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
-    <display-name>Base Datos CRUD </display-name>
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
-    </welcome-file-list>
-     
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ServletAbogado</servlet-name>
+        <servlet-class>Controlador.ServletAbogado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEliminarAbogado</servlet-name>
+        <servlet-class>Controlador.ServletEliminarAbogado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletActualizarAbogado</servlet-name>
+        <servlet-class>Controlador.ServletActualizarAbogado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletTablaAbogados</servlet-name>
+        <servlet-class>Controlador.ServletTablaAbogados</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletProceso</servlet-name>
+        <servlet-class>Controlador.ServletProceso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletActualizarProceso</servlet-name>
+        <servlet-class>Controlador.ServletActualizarProceso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEliminarProceso</servlet-name>
+        <servlet-class>Controlador.ServletEliminarProceso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletTablaProcesos</servlet-name>
+        <servlet-class>Controlador.ServletTablaProcesos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAbogado</servlet-name>
+        <url-pattern>/ServletAbogado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEliminarAbogado</servlet-name>
+        <url-pattern>/ServletEliminarAbogado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletActualizarAbogado</servlet-name>
+        <url-pattern>/ServletActualizarAbogado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletTablaAbogados</servlet-name>
+        <url-pattern>/ServletTablaAbogados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletProceso</servlet-name>
+        <url-pattern>/ServletProceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletActualizarProceso</servlet-name>
+        <url-pattern>/ServletActualizarProceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEliminarProceso</servlet-name>
+        <url-pattern>/ServletEliminarProceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletTablaProcesos</servlet-name>
+        <url-pattern>/ServletTablaProcesos</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
 </web-app>
