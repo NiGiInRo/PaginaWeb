@@ -73,7 +73,7 @@ public class ServletProceso extends HttpServlet {
 //            abogado.setDoc_Abogado(Integer.parseInt(doc_abogado));
 //            dao.updateAbogado(abogado);
 //        }
-        
+         System.out.println(request.getParameter("Razon_Social"));
         
         RequestDispatcher view = request.getRequestDispatcher(LIST_PROCESO);
         request.setAttribute("procesos", dao.getAllProcesos());

@@ -79,13 +79,7 @@
                   </div>
                                   
                   <br>
-                  
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">Nombre del Juzagado:</label>
-                      <input type="text" name="Nombre_Juzgado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
-                      
-                  </div>
-                 
+             
                   <br>
                   Elija ciudad asignada:
                   <select class="form-control" name="Ciudad"> 
@@ -95,9 +89,9 @@
                   </select>
                   <br>
                   
-                  <div class="form-group" name="Razon_Social" >
-                      <label for="comment">Razon Social:<</label>
-                      <textarea class="form-control" rows="5" id="comment"></textarea>
+                  <div class="form-group" >
+                      <label for="comment">Razon Social:</label>
+                      <textarea class="form-control" rows="5" id="comment" name="Razon_Social"></textarea>
                   </div>
                   <br>
                     <div class="form-check">
