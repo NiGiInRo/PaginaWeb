@@ -72,14 +72,6 @@
                           <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="Abogado" checked> Abogado
                       </label>
                   </div>
-                  
-                   <div class="form-check">
-                      <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="Activo" checked>Activo<br>
-                          
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="No activo" checked> No Activo
-                      </label>
-                  </div>
 
                   <div class="form-group">
                       <label for="exampleInputEmail1">Nombre</label>

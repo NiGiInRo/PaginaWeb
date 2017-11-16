@@ -32,7 +32,7 @@
             <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="CrearProceso.jsp">Link</a>
+            <a class="nav-link" href="CrearProceso.jsp">Crear Procesos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>

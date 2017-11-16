@@ -68,17 +68,23 @@
                  
                    <div class="form-group">
                       <label for="exampleInputEmail1">Numero del Proceso</label>
-                      <input type="text" name="Doc_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Num.Identificacion">
+                      <input type="text" name="Id_Proceso" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Num.Identificacion">
                       
                   </div>
                   
                   <div class="form-group">
                       <label for="exampleInputEmail1">Nombre del Proceso:</label>
-                      <input type="text" name="Nombre_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+                      <input type="text" name="Nombre_Proceso" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
                       
                   </div>
                                   
                   <br>
+                  
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Nombre del Juzagado:</label>
+                      <input type="text" name="Nombre_Juzgado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+                      
+                  </div>
                  
                   <br>
                   Elija ciudad asignada:
@@ -89,16 +95,24 @@
                   </select>
                   <br>
                   
-                  <div class="form-group">
+                  <div class="form-group" name="Razon_Social" >
                       <label for="comment">Razon Social:<</label>
                       <textarea class="form-control" rows="5" id="comment"></textarea>
+                  </div>
+                  <br>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="Estado_Proceso" id="exampleRadios1" value="Activo" checked>Activo<br>
+                          
+                          <input class="form-check-input" type="radio" name="Estado_Proceso" id="exampleRadios1" value="No activo" checked> No Activo
+                      </label>
                   </div>
                   <div class="form-check">
                       <label class="form-check-label">
 
                       </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Crear Proceso</button>
               </form>
           </div><!--/row-->
         </div><!--/span-->
