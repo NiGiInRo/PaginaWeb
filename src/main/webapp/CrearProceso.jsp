@@ -60,72 +60,42 @@
             <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
           </p>
           <div class="jumbotron">
-            <h1>Formulario de inscripcion</h1>
-            <p> Crea tu propia cuenta para interactuar!.</p>
+            <h1>Crear proceso</h1>
+            <p> ...</p>
           </div>
           <div class="row">
-              <form method="POST" action="ServletAbogado" name="frmAddUser">
-                  <div class="form-check">
-                      <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="Cliente" checked>Cliente<br>
-                          
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="Abogado" checked> Abogado
-                      </label>
-                  </div>
-                  
-                   <div class="form-check">
-                      <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="Activo" checked>Activo<br>
-                          
-                          <input class="form-check-input" type="radio" name="Actividad" id="exampleRadios1" value="No activo" checked> No Activo
-                      </label>
-                  </div>
-
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">Nombre</label>
-                      <input type="text" name="Nombre_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
-                      
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">Apellido</label>
-                      <input type="text" name="Apellido_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Apellido">
-                      
-                  </div>
-                  Tipo de Identificacion:
-                  <select class="form-control" name="Tipo_Doc">
-                      <option>Cedula de Ciudadania</option>
-                      <option>NIT</option>
-                      <option>Cedula de extrangero</option>
-                  </select>
-                  <br>
-                  <div class="form-group">
-                      <label for="exampleInputEmail1">Numero de Identifiacion</label>
+              <form method="POST" action="ServletProceso" name="frmAddUser">
+                 
+                   <div class="form-group">
+                      <label for="exampleInputEmail1">Numero del Proceso</label>
                       <input type="text" name="Doc_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Num.Identificacion">
                       
                   </div>
+                  
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Nombre del Proceso:</label>
+                      <input type="text" name="Nombre_Abogado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+                      
+                  </div>
+                                  
                   <br>
-                  Ciudad:
+                 
+                  <br>
+                  Elija ciudad asignada:
                   <select class="form-control" name="Ciudad"> 
                       <option>Bogota</option>
                       <option>Medellin</option>
                       <option>Cartagena</option>
                   </select>
                   <br>
+                  
                   <div class="form-group">
-                      <label for="exampleInputEmail1">Email</label>
-                      <input type="email" name="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                       </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">contraseña</label>
-                      <input type="password" name="Contrasena" class="form-control" id="exampleInputPassword1" placeholder="Contrasena">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Confirmar Contraseña</label>
-                      <input type="password" name="Contrasena" class="form-control" id="exampleInputPassword1" placeholder="Confirmar Contrasena">
+                      <label for="comment">Razon Social:<</label>
+                      <textarea class="form-control" rows="5" id="comment"></textarea>
                   </div>
                   <div class="form-check">
                       <label class="form-check-label">
-                          
+
                       </label>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
