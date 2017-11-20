@@ -1,3 +1,12 @@
+<%-- 
+    Document   : ListaDeProcesos
+    Created on : 18/11/2017, 12:55:47 AM
+    Author     : nicol
+--%>
+
+<%@page import="Modelo.Proceso"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.Abogado"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +27,18 @@
 
   <body>
 
+      <% 
+            ArrayList<Proceso> esq= (ArrayList<Proceso>) request.getAttribute("procesos");
+            Integer vtotal = (Integer) request.getAttribute("total");
+            int total = 0;
+            if (vtotal == null) {
+                total = 0;
+            } else {
+                total = vtotal.intValue();
+            }
+
+        %>
+      
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,41 +82,41 @@
       <br>
       <br>
     <div class="container">
-
+        <form method="GET" action="ServletTablaProcesos" name="frmAddUser">
       <div class="row row-offcanvas row-offcanvas-right">
 
-       <table class="table table-striped">
+       <table class="table table-striped" >
+           <%    if (request.getAttribute("procesos") != null) {
+                   ArrayList<Proceso> esqq = (ArrayList<Proceso>) request.getAttribute("procesos");
+                   for (Proceso e : esqq) {
+           %>
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Username</th>
+     
+      <th scope="col">Id Proceso</th>
+      <th scope="col">Nombre Proceso</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Razon Social</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      
+                                     
+      <td><%= e.getId_Proceso()%></td>
+      <td><%= e.getNombre_Proceso()%></td>
+      <td><%= e.getCiudad()%></td>
+      <td><%= e.getRazon_Social()%></td>
+      
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+     <%
+                                        }
+                                    }
+                                %>
   </tbody>
 </table>
-          
       </div><!--/row-->
+          </form>
 
       <hr>
 
@@ -118,3 +139,5 @@
     <script src="offcanvas.js"></script>
   </body>
 </html>
+
+

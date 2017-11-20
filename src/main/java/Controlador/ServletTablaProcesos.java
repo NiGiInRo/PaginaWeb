@@ -5,8 +5,14 @@
  */
 package Controlador;
 
+import DAO.DAOProceso;
+import Modelo.Proceso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +65,29 @@ public class ServletTablaProcesos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        
+            ArrayList<Proceso> lista = null;
+            DAOProceso abo;
+            
+        try {
+            abo = new DAOProceso();
+        
+            lista=abo.getProcesos();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletTablaProcesos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServletTablaProcesos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ServletTablaProcesos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ServletTablaProcesos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              
+            request.setAttribute("procesos", lista);
+                   
+        
     }
 
     /**
