@@ -36,13 +36,13 @@ public class ServletProceso extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equalsIgnoreCase("delete")){
-            int Doc_Abogado = Integer.parseInt(request.getParameter("Id_Proceso"));
-            dao.deleteProceso(Doc_Abogado);
+            int Id_Proceso = Integer.parseInt(request.getParameter("Id_Proceso"));
+            dao.deleteProceso(Id_Proceso);
             forward = LIST_PROCESO;
             request.setAttribute("procesos", dao.getAllProcesos());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
-            int Id_Proceso = Integer.parseInt(request.getParameter("procesoId"));
+            int Id_Proceso = Integer.parseInt(request.getParameter("userId"));
             Proceso proceso = dao.getProcesosbyId(Id_Proceso);
             request.setAttribute("proceso", proceso);
         } else if (action.equalsIgnoreCase("listUser")){
@@ -63,7 +63,7 @@ public class ServletProceso extends HttpServlet {
         proceso.setEstado_Proceso(request.getParameter("Estado_Proceso"));
         proceso.setRazon_Social(request.getParameter("Razon_Social"));
         proceso.setId_Proceso(Integer.parseInt(request.getParameter("Id_Proceso")));
-        proceso.setNombre_Juzgado(request.getParameter("Nombre_Juzgado"));
+        
 //        if(doc_abogado == null || doc_abogado.isEmpty())
 //        {
             dao.addProceso(proceso);
@@ -73,7 +73,7 @@ public class ServletProceso extends HttpServlet {
 //            abogado.setDoc_Abogado(Integer.parseInt(doc_abogado));
 //            dao.updateAbogado(abogado);
 //        }
-         System.out.println(request.getParameter("Razon_Social"));
+       
         
         RequestDispatcher view = request.getRequestDispatcher(LIST_PROCESO);
         request.setAttribute("procesos", dao.getAllProcesos());

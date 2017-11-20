@@ -31,9 +31,8 @@ public class DAOProceso {
 	public void addProceso(Proceso proceso) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into Procesos(Id_Proceso,Nombre_Proceso,Ciudad,Razon_Social,Estado_Proceso) values (?, ?, ?, ?, ? )");
+					.prepareStatement("insert into Procesos( Id_Proceso, Nombre_Proceso, Ciudad, Razon_Social, Estado_Proceso) values ( ?, ?, ?, ?, ?)");
 			// Parameters start with 1
-                        System.out.println("insert into Abogado(Doc_Abogado,Nombre_Abogado,Apellido_Abogado,Actividad,Email,Contraseña,Ciudad,Tipo_Doc) values (?, ?, ?, ?, ?, ?, ?, ? )");
                         preparedStatement.setInt(1, proceso.getId_Proceso());
                         preparedStatement.setString(2, proceso.getNombre_Proceso());
 			preparedStatement.setString(3, proceso.getCiudad());
