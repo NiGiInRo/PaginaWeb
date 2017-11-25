@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<%
+    HttpSession sesion = request.getSession();
+    Abogado usuario = (Abogado)sesion.getAttribute("Email");
+    if( usuario == null){
+      response.sendRedirect("index.jsp");
+    }else{ 
+     // if(usuario.getDoc_Abogado()==4567){
+%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -175,3 +183,11 @@
     <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+<%}//else{
+%>
+
+
+<%
+// }
+//}
+%>

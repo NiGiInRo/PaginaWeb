@@ -203,5 +203,40 @@ public class DAOAbogado {
             return historial;
    
     }
+          public Abogado validar(Abogado abogado) {
+        try {
+            PreparedStatement preparedStatement = null;
+            String consulta = "SELECT * FROM Abogado WHERE Email=? AND Contrasena=?";
+            
+            preparedStatement = connection.prepareStatement(consulta);
+            preparedStatement.setString(1, abogado.getEmail().trim());
+            preparedStatement.setString(2, abogado.getContrasena().trim());
+            System.out.println(abogado.getEmail());
+            System.out.println(abogado.getContrasena());
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+
+                int id = rs.getInt("Doc_Abogado");
+                String login = rs.getString("Email");
+                String pass = rs.getString("Contraseña");
+                Abogado sesion = new Abogado();
+                sesion.setEmail(login);
+                sesion.setContrasena(pass);
+                sesion.setDoc_Abogado(id);
+                System.out.println(sesion);
+                return sesion;
+            } else {
+                //Luego realizaremos otro tipo de retorno 
+                    System.out.println("sdfgsdg");
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
     
 }

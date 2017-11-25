@@ -32,6 +32,10 @@
         <servlet-name>ServletTablaProcesos</servlet-name>
         <servlet-class>Controlador.ServletTablaProcesos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>Controlador.ServletLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAbogado</servlet-name>
         <url-pattern>/ServletAbogado</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ServletTablaProcesos</servlet-name>
         <url-pattern>/ServletTablaProcesos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

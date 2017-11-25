@@ -8,6 +8,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Modelo.Abogado"%>
 <!DOCTYPE html>
+<%
+    HttpSession sesion = request.getSession();
+    Abogado usuario = (Abogado)sesion.getAttribute("Email");
+    if( usuario == null){
+      response.sendRedirect("index.jsp");
+    }else{ 
+     // if(usuario.getDoc_Abogado()==4567){
+%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -141,3 +149,11 @@
 </html>
 
 
+<%}//else{
+%>
+ kdjfaklsdjlkaklfdaf
+
+<%
+// }
+//}
+%>
