@@ -48,17 +48,11 @@
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" method="POST" action="ServletLogin" name="frmAddUser" >
           <input type="email" class="form-control" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" placeholder="Enter email">
            <input type="password" class="form-control" id="exampleInputPassword1" name="Contrasena" placeholder="Password">
            
-           <div class="form-check">
-              <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input"> Recordarme.            
-                  
-              </label>
-          </div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar!</button>
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar!</button>
         </form>
       </div>
     </nav>
