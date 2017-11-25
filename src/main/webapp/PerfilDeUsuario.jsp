@@ -1,3 +1,4 @@
+<%@page import="Modelo.Abogado"%>
 <!DOCTYPE html>
 <%
     HttpSession sesion = request.getSession();
@@ -37,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="indexUsuario.jsp">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="CrearProceso.jsp">Crear Procesos</a>
@@ -46,9 +47,8 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form class="form-inline mt-2 mt-md-0" action="ServletLogin" method="GET">
+          <button class="btn btn-outline-success my-2 my-sm-0" href="index.jsp" type="submit">Cerrar Sesion.</button>
         </form>
       </div>
     </nav>
@@ -185,7 +185,7 @@
 </html>
 <%}//else{
 %>
-
+ kdjfaklsdjlkaklfdaf
 
 <%
 // }

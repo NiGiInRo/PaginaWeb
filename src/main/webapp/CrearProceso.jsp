@@ -1,3 +1,4 @@
+<%@page import="Modelo.Abogado"%>
 <!DOCTYPE html>
 <%
     HttpSession sesion = request.getSession();
@@ -23,11 +24,12 @@
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
   </head>
-
+  <br>
+  <br>
   <body>
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="indexUsuario.jsp">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,26 +37,16 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="indexUsuario.jsp">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="PerfilDeUsuario.jsp">Perfil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
+          
+          
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline mt-2 mt-md-0" action="ServletLogin" method="GET">
+          <button class="btn btn-outline-success my-2 my-sm-0" href="index.jsp" type="submit">Cerrar Sesion.</button>
         </form>
       </div>
     </nav>
@@ -118,21 +110,14 @@
               </form>
           </div><!--/row-->
         </div><!--/span-->
+        
+        <form method="POST" action="ServletProceso" name="frmAddUser">
+           
+              <button type="submit" class="btn btn-primary">Lista de Procesos</button>
+               
+           
+        </form>
 
-        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-          </div>
-        </div><!--/span-->
       </div><!--/row-->
 
       <hr>
@@ -158,7 +143,7 @@
 </html>
 <%}//else{
 %>
-
+ kdjfaklsdjlkaklfdaf
 
 <%
 // }
