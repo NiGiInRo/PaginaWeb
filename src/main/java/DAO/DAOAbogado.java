@@ -218,7 +218,7 @@ public class DAOAbogado {
 
                 int id = rs.getInt("Doc_Abogado");
                 String login = rs.getString("Email");
-                String pass = rs.getString("Contraseña");
+                String pass = rs.getString("Contrasena");
                 Abogado sesion = new Abogado();
                 sesion.setEmail(login);
                 sesion.setContrasena(pass);
