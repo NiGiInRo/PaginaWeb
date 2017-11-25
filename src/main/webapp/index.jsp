@@ -49,8 +49,8 @@
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="email" class="form-control" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" placeholder="Enter email">
+           <input type="password" class="form-control" id="exampleInputPassword1" name="Contrasena" placeholder="Password">
            
            <div class="form-check">
               <label class="form-check-label">
