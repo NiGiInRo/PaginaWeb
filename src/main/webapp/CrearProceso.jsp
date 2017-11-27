@@ -111,7 +111,7 @@
           </div><!--/row-->
         </div><!--/span-->
         
-        <form method="POST" action="ServletProceso" name="frmAddUser">
+        <form method="GET" action="ServletProceso?listUser" name="frmAddUser">
            
               <button type="submit" class="btn btn-primary">Lista de Procesos</button>
                
