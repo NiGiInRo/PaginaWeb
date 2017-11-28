@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Modelo.Abogado;
+import Modelo.Usuario;
 import Util.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,28 +19,27 @@ import java.util.List;
  *
  * @author nicol
  */
-public class DAOAbogado {
+public class DAOUsuario {
     
     private Connection connection;
 
-	public DAOAbogado() {
+	public DAOUsuario() {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addAbogado(Abogado abogado) {
+	public void addUsuario(Usuario usuario) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into Abogado(Doc_Abogado,Nombre_Abogado,Apellido_Abogado,Actividad,Email,Contrasena,Ciudad,Tipo_Doc) values (?, ?, ?, ?, ?, ?, ?, ? )");
+					.prepareStatement("insert into Usuario(Doc_Usuario,Nombre_Usuario,Apellido_Usuario,Actividad,Email,Contrasena,Ciudad,Tipo_Doc) values (?, ?, ?, ?, ?, ?, ?, ? )");
 			// Parameters start with 1
-                        System.out.println("insert into Abogado(Doc_Abogado,Nombre_Abogado,Apellido_Abogado,Actividad,Email,Contrasena,Ciudad,Tipo_Doc) values (?, ?, ?, ?, ?, ?, ?, ? )");
-                        preparedStatement.setInt(1, abogado.getDoc_Abogado());
-                        preparedStatement.setString(2, abogado.getNombre_Abogado());
-			preparedStatement.setString(3, abogado.getApellido_Abogado());
-			preparedStatement.setString(4, abogado.isActividad());
-			preparedStatement.setString(5, abogado.getEmail());
-                        preparedStatement.setString(6, abogado.getContrasena());
-                        preparedStatement.setString(7, abogado.getCiudad());
-                        preparedStatement.setString(8, abogado.getTipo_Doc());
+                        preparedStatement.setInt(1, usuario.getDoc_Usuario());
+                        preparedStatement.setString(2, usuario.getNombre_Usuario());
+			preparedStatement.setString(3, usuario.getApellido_Usuario());
+			preparedStatement.setString(4, usuario.isActividad());
+			preparedStatement.setString(5, usuario.getEmail());
+                        preparedStatement.setString(6, usuario.getContrasena());
+                        preparedStatement.setString(7, usuario.getCiudad());
+                        preparedStatement.setString(8, usuario.getTipo_Doc());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -48,12 +47,12 @@ public class DAOAbogado {
 		}
 	}
 	
-	public void deleteAbogado(int Doc_Abogado) {
+	public void deleteUsuario(int Doc_Usuario) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from Abogado where Doc_Abogado=?");
+					.prepareStatement("delete from Usuario where Doc_Usuario=?");
 			// Parameters start with 1
-			preparedStatement.setInt(1, Doc_Abogado);
+			preparedStatement.setInt(1, Doc_Usuario);
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -87,9 +86,9 @@ public class DAOAbogado {
 	}
 */
         
-        public void UpdateAbogado(Abogado q, int cedula) {
+        public void UpdateUsuario(Usuario q, int cedula) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("update Abogado set Doc_Abogado='"+cedula+"' "+"where Doc_Abogado="+q.getDoc_Abogado()+";");
+			PreparedStatement preparedStatement = connection.prepareStatement("update Usuario set Doc_Usuario='"+cedula+"' "+"where Doc_Usuario="+q.getDoc_Usuario()+";");
 			
 			preparedStatement.executeUpdate();
 
@@ -98,74 +97,74 @@ public class DAOAbogado {
 		}
 	}
 
-	public List<Abogado> getAllAbogados() {
-		List<Abogado> abogados = new ArrayList<Abogado>();
+	public List<Usuario> getAllUsuario() {
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
                       System.out.println("LLegue hasta aca");
 			Statement statement = connection.createStatement();
                         
                         
-			ResultSet rs = statement.executeQuery("select * from Abogado");
+			ResultSet rs = statement.executeQuery("select * from Usuario");
 			while (rs.next()) {
-				Abogado abogado = new Abogado();
-				abogado.setDoc_Abogado(rs.getInt("Doc_Abogado"));
-				abogado.setNombre_Abogado(rs.getString("Nombre_Abogado"));
-				abogado.setApellido_Abogado(rs.getString("Apellido_Abogado"));
-				abogado.setActividad(rs.getString("Actividad"));
-				abogado.setEmail(rs.getString("Email"));
-                                abogado.setContrasena(rs.getString("Contrasena"));
-                                abogado.setCiudad(rs.getString("Ciudad"));
-                                abogado.setTipo_Doc(rs.getString("Tipo_Doc"));
-				abogados.add(abogado);
+				Usuario usuario = new Usuario();
+				usuario.setDoc_Usuario(rs.getInt("Doc_Usuario"));
+				usuario.setNombre_Usuario(rs.getString("Nombre_Usuario"));
+				usuario.setApellido_Usuario(rs.getString("Apellido_Usuario"));
+				usuario.setActividad(rs.getString("Actividad"));
+				usuario.setEmail(rs.getString("Email"));
+                                usuario.setContrasena(rs.getString("Contrasena"));
+                                usuario.setCiudad(rs.getString("Ciudad"));
+                                usuario.setTipo_Doc(rs.getString("Tipo_Doc"));
+				usuarios.add(usuario);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return abogados;
+		return usuarios;
 	}
 	
-	public Abogado getAbogadosbyId(int Doc_Abogado) {
-		Abogado abogado = new Abogado();
+	public Usuario getUsuariosbyId(int Doc_Usuario) {
+		Usuario usuario = new Usuario();
 		try {
 			PreparedStatement preparedStatement = connection.
-					prepareStatement("select * from Abogado where Doc_Abogado=?");
-			preparedStatement.setInt(1, Doc_Abogado);
+					prepareStatement("select * from Usuario where Doc_Usuario=?");
+			preparedStatement.setInt(1, Doc_Usuario);
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				abogado.setDoc_Abogado(rs.getInt("Doc_Abogado"));
-				abogado.setNombre_Abogado(rs.getString("Nombre_Abogado"));
-				abogado.setApellido_Abogado(rs.getString("Apellido_Abogado"));
-				abogado.setActividad(rs.getString("Actividad"));
-				abogado.setEmail(rs.getString("Email"));
-                                abogado.setContrasena(rs.getString("Contrasena"));
-                                abogado.setCiudad(rs.getString("Ciudad"));
-                                abogado.setTipo_Doc(rs.getString("Tipo_Documento"));
+				usuario.setDoc_Usuario(rs.getInt("Doc_Usuario"));
+				usuario.setNombre_Usuario(rs.getString("Nombre_Usuario"));
+				usuario.setApellido_Usuario(rs.getString("Apellido_Usuario"));
+				usuario.setActividad(rs.getString("Actividad"));
+				usuario.setEmail(rs.getString("Email"));
+                                usuario.setContrasena(rs.getString("Contrasena"));
+                                usuario.setCiudad(rs.getString("Ciudad"));
+                                usuario.setTipo_Doc(rs.getString("Tipo_Documento"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return abogado;
+		return usuario;
 	}
         
-         public Abogado objetoAbogado(int documento) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+         public Usuario objetoUsuario(int documento) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         
         String query;
-        Abogado abogado=null;
+        Usuario usuario=null;
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         Statement stmt = (Statement) connection.createStatement();
-        query = "SELECT * FROM Abogado WHERE Doc_Abogado='" + documento + "';";
+        query = "SELECT * FROM Usuario WHERE Doc_Usuario='" + documento + "';";
         stmt.executeQuery(query);
         ResultSet rs = stmt.getResultSet();
         
         System.out.println(query);
         
         while (rs.next()) {
-            abogado= new Abogado();
+            usuario= new Usuario();
             
-            abogado.setDoc_Abogado(rs.getInt("Doc_Abogado"));
+            usuario.setDoc_Usuario(rs.getInt("Doc_Usuario"));
             /*abogado.setNombre_Abogado(rs.getString("Nombre_Abogado"));
             abogado.setApellido_Abogado(rs.getString("Apellido_Abogado"));
             abogado.setActividad(rs.getString("Actividad"));
@@ -176,53 +175,53 @@ public class DAOAbogado {
            */
           }
         
-        return abogado;
+        return usuario;
     }
          
-         public ArrayList<Abogado> getAbogados() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+         public ArrayList<Usuario> getUsuarios() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
    
-            ArrayList<Abogado> historial = new ArrayList<Abogado>();
+            ArrayList<Usuario> historial = new ArrayList<Usuario>();
             Statement stmt = (Statement) connection.createStatement();
-            String query = "SELECT * FROM Abogado;";
+            String query = "SELECT * FROM Usuario;";
             stmt.executeQuery(query);
             ResultSet rs = stmt.getResultSet();
             
-           Abogado abo= new Abogado();
+           Usuario use= new Usuario();
            
             while (rs.next()) {
-                abo = new Abogado();
-                abo.setDoc_Abogado(rs.getInt("Doc_Abogado"));
-                abo.setNombre_Abogado(rs.getString("Nombre_Abogado"));
-                abo.setApellido_Abogado(rs.getString("Apellido_Abogado"));
-                abo.setActividad(rs.getString("Actividad"));
-                abo.setEmail(rs.getString("Email"));                
-                abo.setCiudad(rs.getString("Ciudad"));
-                historial.add(abo);
+                use = new Usuario();
+                use.setDoc_Usuario(rs.getInt("Doc_Usuario"));
+                use.setNombre_Usuario(rs.getString("Nombre_Usuario"));
+                use.setApellido_Usuario(rs.getString("Apellido_Usuario"));
+                use.setActividad(rs.getString("Actividad"));
+                use.setEmail(rs.getString("Email"));                
+                use.setCiudad(rs.getString("Ciudad"));
+                historial.add(use);
                 
             }
             return historial;
    
     }
-          public Abogado validar(Abogado abogado) {
+    public Usuario validar(Usuario usuario) {
         try {
             PreparedStatement preparedStatement = null;
-            String consulta = "SELECT * FROM Abogado WHERE Email=? AND Contrasena=?";
+            String consulta = "SELECT * FROM Usuario WHERE Email=? AND Contrasena=?";
             
             preparedStatement = connection.prepareStatement(consulta);
-            preparedStatement.setString(1, abogado.getEmail().trim());
-            preparedStatement.setString(2, abogado.getContrasena().trim());
-            System.out.println(abogado.getEmail());
-            System.out.println(abogado.getContrasena());
+            preparedStatement.setString(1, usuario.getEmail().trim());
+            preparedStatement.setString(2, usuario.getContrasena().trim());
+            System.out.println(usuario.getEmail());
+            System.out.println(usuario.getContrasena());
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
 
-                int id = rs.getInt("Doc_Abogado");
+                int id = rs.getInt("Doc_Usuario");
                 String login = rs.getString("Email");
                 String pass = rs.getString("Contrasena");
-                Abogado sesion = new Abogado();
+                Usuario sesion = new Usuario();
                 sesion.setEmail(login);
                 sesion.setContrasena(pass);
-                sesion.setDoc_Abogado(id);
+                sesion.setDoc_Usuario(id);
                 System.out.println(sesion);
                 return sesion;
             } else {
@@ -238,5 +237,4 @@ public class DAOAbogado {
         return null;
 
     }
-    
 }

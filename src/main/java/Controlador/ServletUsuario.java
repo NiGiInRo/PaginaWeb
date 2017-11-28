@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import DAO.DAOAbogado;
-import Modelo.Abogado;
+import DAO.DAOUsuario;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -22,16 +22,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nicol
  */
-public class ServletAbogado extends HttpServlet {
+public class ServletUsuario extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/Formulario.jsp";
-    private static String LIST_ABOGADO = "/PerfilDeUsuario.jsp";
-    private DAOAbogado dao;
+    private static String LIST_USUARIO = "/PerfilDeUsuario.jsp";
+    private DAOUsuario dao;
 
-    public ServletAbogado() {
+    public ServletUsuario() {
         super();
-        dao = new DAOAbogado();
+        dao = new DAOUsuario();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,18 +39,18 @@ public class ServletAbogado extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equalsIgnoreCase("delete")){
-            int Doc_Abogado = Integer.parseInt(request.getParameter("Doc_Abogado"));
-            dao.deleteAbogado(Doc_Abogado);
-            forward = LIST_ABOGADO;
-            request.setAttribute("abogados", dao.getAllAbogados());    
+            int Doc_Usuario = Integer.parseInt(request.getParameter("Doc_Usuario"));
+            dao.deleteUsuario(Doc_Usuario);
+            forward = LIST_USUARIO;
+            request.setAttribute("usuarios", dao.getAllUsuario());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
-            int Doc_Abogados = Integer.parseInt(request.getParameter("userId"));
-            Abogado abogado = dao.getAbogadosbyId(Doc_Abogados);
-            request.setAttribute("abogado", abogado);
+            int Doc_Usuarios = Integer.parseInt(request.getParameter("userId"));
+            Usuario usuario = dao.getUsuariosbyId(Doc_Usuarios);
+            request.setAttribute("usuario", usuario);
         } else if (action.equalsIgnoreCase("listUser")){
-            forward = LIST_ABOGADO;
-            request.setAttribute("abogados", dao.getAllAbogados());
+            forward = LIST_USUARIO;
+            request.setAttribute("usuarios", dao.getAllUsuario());
         } else {
             forward = INSERT_OR_EDIT;
         }
@@ -60,18 +60,18 @@ public class ServletAbogado extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Abogado abogado = new Abogado();
-        abogado.setNombre_Abogado(request.getParameter("Nombre_Abogado"));
-        abogado.setApellido_Abogado(request.getParameter("Apellido_Abogado"));
-        abogado.setCiudad(request.getParameter("Ciudad"));
-        abogado.setEmail(request.getParameter("Email"));
-        abogado.setActividad(request.getParameter("Actividad"));
-        abogado.setContrasena(request.getParameter("Contrasena"));
-        abogado.setTipo_Doc(request.getParameter("Tipo_Doc"));
-        abogado.setDoc_Abogado(Integer.parseInt(request.getParameter("Doc_Abogado")));
+        Usuario usuario = new Usuario();
+        usuario.setNombre_Usuario(request.getParameter("Nombre_Usuario"));
+        usuario.setApellido_Usuario(request.getParameter("Apellido_Usuario"));
+        usuario.setCiudad(request.getParameter("Ciudad"));
+        usuario.setEmail(request.getParameter("Email"));
+        usuario.setActividad(request.getParameter("Actividad"));
+        usuario.setContrasena(request.getParameter("Contrasena"));
+        usuario.setTipo_Doc(request.getParameter("Tipo_Doc"));
+        usuario.setDoc_Usuario(Integer.parseInt(request.getParameter("Doc_Usuario")));
 //        if(doc_abogado == null || doc_abogado.isEmpty())
 //        {
-            dao.addAbogado(abogado);
+            dao.addUsuario(usuario);
 //        }
 //        else
 //        {
@@ -80,8 +80,8 @@ public class ServletAbogado extends HttpServlet {
 //        }
         
         
-        RequestDispatcher view = request.getRequestDispatcher(LIST_ABOGADO);
-        request.setAttribute("abogados", dao.getAllAbogados());
+        RequestDispatcher view = request.getRequestDispatcher(LIST_USUARIO);
+        request.setAttribute("abogados", dao.getAllUsuario());
         view.forward(request, response);
     }
 }

@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import DAO.DAOAbogado;
-import Modelo.Abogado;
+import DAO.DAOUsuario;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nicol
  */
-public class ServletEliminarAbogado extends HttpServlet {
+public class ServletEliminarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +36,7 @@ public class ServletEliminarAbogado extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,24 +53,24 @@ public class ServletEliminarAbogado extends HttpServlet {
             throws ServletException, IOException {
         
         try {
-            String abo = request.getParameter("Doc_Abogado");
+            String abo = request.getParameter("Doc_Usuario");
             
-            DAOAbogado de;
-            de = new DAOAbogado();
-            Abogado abogado= new Abogado();
-            abogado= de.objetoAbogado(Integer.parseInt(abo));
-            System.out.println(abogado.toString());
-            de.deleteAbogado(abogado.getDoc_Abogado());
+            DAOUsuario de;
+            de = new DAOUsuario();
+            Usuario usuario= new Usuario();
+            usuario= de.objetoUsuario(Integer.parseInt(abo));
+            System.out.println(usuario.toString());
+            de.deleteUsuario(usuario.getDoc_Usuario());
             RequestDispatcher rd = request.getRequestDispatcher("PerfilUsuario.jsp");
             rd.forward(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServletEliminarAbogado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServletEliminarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(ServletEliminarAbogado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServletEliminarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(ServletEliminarAbogado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServletEliminarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ServletEliminarAbogado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServletEliminarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
        
     }

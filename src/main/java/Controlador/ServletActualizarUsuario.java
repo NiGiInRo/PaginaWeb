@@ -5,12 +5,11 @@
  */
 package Controlador;
 
-import DAO.DAOAbogado;
-import Modelo.Abogado;
+import DAO.DAOUsuario;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -23,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nicol
  */
-public class ServletTablaAbogados extends HttpServlet {
+public class ServletActualizarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -52,44 +51,50 @@ public class ServletTablaAbogados extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try {
-            ArrayList<Abogado> lista = null;
-            DAOAbogado abo;
-            
-        
-            abo = new DAOAbogado();
-            lista=abo.getAbogados();
-              
-            request.setAttribute("abogados", lista);
-                   
-            RequestDispatcher rd = request.getRequestDispatcher("PerfilUsuario.jsp");
-            rd.forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ServletTablaAbogados.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ServletTablaAbogados.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(ServletTablaAbogados.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(ServletTablaAbogados.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-      
-    }
-
-   
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
         processRequest(request, response);
     }
 
     /**
-     * Returns a short description of the servlet.
+     * Handles the HTTP <code>POST</code> method.
      *
-     * @return a String containing servlet description
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+           PrintWriter out = response.getWriter();
+            
+            String cedula = request.getParameter("Doc_Usuario");
+            String cedula2 = request.getParameter("Doc_Usuario2");
+            
+            DAOUsuario de;
+        try {
+            de = new DAOUsuario();
+            Usuario abo= new Usuario();
+            
+            //esq=de.objetoEmpleado(Integer.parseInt(cedula));
+            abo=de.objetoUsuario(Integer.parseInt(cedula));
+            de.UpdateUsuario(abo, Integer.parseInt(cedula2));
+            
+            RequestDispatcher rd = request.getRequestDispatcher("PerfilUsuario.jsp");
+            rd.forward(request, response);
+        
+        } catch (SQLException ex) {
+            
+        } catch (ClassNotFoundException ex) {
+            
+        } catch (InstantiationException ex) {
+            
+        } catch (IllegalAccessException ex) {
+            
+        }
+    }
+
+    
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -9,40 +9,40 @@ package Modelo;
  *
  * @author nicol
  */
-public class Abogado {
+public class Usuario {
     
     
-    private int Doc_Abogado;
-    private String Nombre_Abogado;
-    private String Apellido_Abogado;
+    private int Doc_Usuario;
+    private String Nombre_Usuario;
+    private String Apellido_Usuario;
     private String Actividad;
     private String Email;
     private String Contrasena;
     private String Ciudad;
     private String Tipo_Doc;
 
-    public int getDoc_Abogado() {
-        return Doc_Abogado;
+    public int getDoc_Usuario() {
+        return Doc_Usuario;
     }
 
-    public void setDoc_Abogado(int Doc_Abogado) {
-        this.Doc_Abogado = Doc_Abogado;
+    public void setDoc_Usuario(int Doc_Usuario) {
+        this.Doc_Usuario = Doc_Usuario;
     }
 
-    public String getNombre_Abogado() {
-        return Nombre_Abogado;
+    public String getNombre_Usuario() {
+        return Nombre_Usuario;
     }
 
-    public void setNombre_Abogado(String Nombre_Abogado) {
-        this.Nombre_Abogado = Nombre_Abogado;
+    public void setNombre_Usuario(String Nombre_Usuario) {
+        this.Nombre_Usuario = Nombre_Usuario;
     }
 
-    public String getApellido_Abogado() {
-        return Apellido_Abogado;
+    public String getApellido_Usuario() {
+        return Apellido_Usuario;
     }
 
-    public void setApellido_Abogado(String Apellido_Abogado) {
-        this.Apellido_Abogado = Apellido_Abogado;
+    public void setApellido_Usuario(String Apellido_Usuario) {
+        this.Apellido_Usuario = Apellido_Usuario;
     }
 
     public String isActividad() {
@@ -83,6 +83,11 @@ public class Abogado {
 
     public void setTipo_Doc(String Tipo_Doc) {
         this.Tipo_Doc = Tipo_Doc;
+    }
+
+    @Override
+    public String toString() {
+        return "Abogado{" + "Doc_Abogado=" + Doc_Usuario + ", Nombre_Abogado=" + Nombre_Usuario + ", Apellido_Abogado=" + Apellido_Usuario + ", Actividad=" + Actividad + ", Email=" + Email + ", Contrase\u00f1a=" + Contrasena + ", Ciudad=" + Ciudad + ", Tipo_Doc=" + Tipo_Doc + '}';
     }
     
     

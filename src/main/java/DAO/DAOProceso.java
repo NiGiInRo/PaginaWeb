@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Modelo.Abogado;
+import Modelo.Usuario;
 import Modelo.Proceso;
 import Util.DbUtil;
 import java.sql.Connection;
@@ -31,13 +31,14 @@ public class DAOProceso {
 	public void addProceso(Proceso proceso) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into Procesos( Id_Proceso, Nombre_Proceso, Ciudad, Razon_Social, Estado_Proceso) values ( ?, ?, ?, ?, ?)");
+					.prepareStatement("insert into Procesos(Id_Proceso,Nombre_Proceso,Ciudad,Razon_Social,Estado_Proceso,Doc_Usuario) values (?, ?, ?, ?, ?, ? )");
 			// Parameters start with 1
-                        preparedStatement.setInt(1, proceso.getId_Proceso());
+                         preparedStatement.setInt(1, proceso.getId_Proceso());
                         preparedStatement.setString(2, proceso.getNombre_Proceso());
 			preparedStatement.setString(3, proceso.getCiudad());
 			preparedStatement.setString(4, proceso.getRazon_Social());
 			preparedStatement.setString(5, proceso.getEstado_Proceso());
+                        preparedStatement.setInt(6, proceso.getDoc_Usuario());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -57,7 +58,32 @@ public class DAOProceso {
 			e.printStackTrace();
 		}
 	}
-	
+	/*
+	public void updateAbogado(Abogado abogado) {
+		try {
+                    if(connection!=null){
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("update Abogado set Nombre_Abogado=?, Apellido_Abogado=?, Actividad=?, Email=?, Contraseña=?, Ciudad=?, Tipo_Doc=?" + 
+							"where Doc_Abogado=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, abogado.getDoc_Abogado());
+			preparedStatement.setString(2, abogado.getNombre_Abogado());
+			preparedStatement.setString(3, abogado.getApellido_Abogado());
+			preparedStatement.setString(4, abogado.isActividad());
+			preparedStatement.setString(5, abogado.getEmail());
+                        preparedStatement.setString(6, abogado.getContraseña());
+                        preparedStatement.setString(7, abogado.getCiudad());
+                        preparedStatement.setString(8, abogado.getTipo_Doc());
+			preparedStatement.executeUpdate();
+                    }
+                    else{
+                        System.out.println("No existe conexion");
+                    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+*/
         
         public void UpdateProceso(Proceso q, int id) {
 		try {
@@ -94,6 +120,31 @@ public class DAOProceso {
 		return procesos;
 	}
 	
+        
+        public List<Proceso> getProcesosUsuario(int Doc_Usuario) {
+		List<Proceso> procesos = new ArrayList<Proceso>();
+		try {
+                     
+			Statement statement = connection.createStatement();
+                        
+                        
+			ResultSet rs = statement.executeQuery("select * from Procesos where Doc_Usuario="+ Doc_Usuario);
+			while (rs.next()) {
+				Proceso proceso = new Proceso();
+				proceso.setId_Proceso(rs.getInt("Id_Proceso"));
+				proceso.setNombre_Proceso(rs.getString("Nombre_Proceso"));
+				proceso.setCiudad(rs.getString("Ciudad"));
+				proceso.setRazon_Social(rs.getString("Razon_Social"));
+				proceso.setEstado_Proceso(rs.getString("Estado_Proceso"));
+                                procesos.add(proceso);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return procesos;
+	}
+        
 	public Proceso  getProcesosbyId(int Id_Proceso) {
 		Proceso proceso = new Proceso();
 		try {

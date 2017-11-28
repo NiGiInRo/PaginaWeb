@@ -1,8 +1,8 @@
-<%@page import="Modelo.Abogado"%>
+<%@page import="Modelo.Usuario"%>
 <!DOCTYPE html>
 <%
     HttpSession sesion = request.getSession();
-    Abogado usuario = (Abogado)sesion.getAttribute("Email");
+    Usuario usuario = (Usuario)sesion.getAttribute("Email");
     if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 
@@ -111,12 +111,12 @@
           </div><!--/row-->
         </div><!--/span-->
         
-        <form method="GET" action="ServletProceso?listUser" name="frmAddUser">
+        <a href="ServletProceso?action=listUser"><button type="submit" value="Lista Proceso" class="btn btn-primary">Lista Proceso</button></a>
            
-              <button type="submit" class="btn btn-primary">Lista de Procesos</button>
+              
                
            
-        </form>
+        
 
       </div><!--/row-->
 

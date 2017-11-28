@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>ServletAbogado</servlet-name>
-        <servlet-class>Controlador.ServletAbogado</servlet-class>
+        <servlet-name>ServletUsuario</servlet-name>
+        <servlet-class>Controlador.ServletUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ServletEliminarAbogado</servlet-name>
-        <servlet-class>Controlador.ServletEliminarAbogado</servlet-class>
+        <servlet-name>ServletEliminarUsuario</servlet-name>
+        <servlet-class>Controlador.ServletEliminarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ServletActualizarAbogado</servlet-name>
-        <servlet-class>Controlador.ServletActualizarAbogado</servlet-class>
+        <servlet-name>ServletActualizarUsuario</servlet-name>
+        <servlet-class>Controlador.ServletActualizarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ServletTablaAbogados</servlet-name>
-        <servlet-class>Controlador.ServletTablaAbogados</servlet-class>
+        <servlet-name>ServletTablaUsuario</servlet-name>
+        <servlet-class>Controlador.ServletTablaUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletProceso</servlet-name>
@@ -37,20 +37,20 @@
         <servlet-class>Controlador.ServletLogin</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletAbogado</servlet-name>
-        <url-pattern>/ServletAbogado</url-pattern>
+        <servlet-name>ServletUsuario</servlet-name>
+        <url-pattern>/ServletUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ServletEliminarAbogado</servlet-name>
-        <url-pattern>/ServletEliminarAbogado</url-pattern>
+        <servlet-name>ServletEliminarUsuario</servlet-name>
+        <url-pattern>/ServletEliminarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ServletActualizarAbogado</servlet-name>
-        <url-pattern>/ServletActualizarAbogado</url-pattern>
+        <servlet-name>ServletActualizarUsuario</servlet-name>
+        <url-pattern>/ServletActualizarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ServletTablaAbogados</servlet-name>
-        <url-pattern>/ServletTablaAbogados</url-pattern>
+        <servlet-name>ServletTablaUsuario</servlet-name>
+        <url-pattern>/ServletTablaUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletProceso</servlet-name>

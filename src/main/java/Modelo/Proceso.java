@@ -14,10 +14,19 @@ public class Proceso {
     private int Id_Proceso;
     private String Nombre_Proceso;
     private String Ciudad;
-    private String Nombre_Juzgado;
+    private int Doc_Usuario;
     private String Razon_Social;
     private String Estado_Proceso;
 
+    public int getDoc_Usuario() {
+        return Doc_Usuario;
+    }
+
+    public void setDoc_Usuario(int Usuario) {
+        this.Doc_Usuario = Usuario;
+    }
+
+    
     public int getId_Proceso() {
         return Id_Proceso;
     }
@@ -42,14 +51,7 @@ public class Proceso {
         this.Ciudad = Ciudad;
     }
 
-    public String getNombre_Juzgado() {
-        return Nombre_Juzgado;
-    }
-
-    public void setNombre_Juzgado(String Nombre_Juzgado) {
-        this.Nombre_Juzgado = Nombre_Juzgado;
-    }
-
+   
     public String getRazon_Social() {
         return Razon_Social;
     }

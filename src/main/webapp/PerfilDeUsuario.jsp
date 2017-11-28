@@ -1,8 +1,8 @@
-<%@page import="Modelo.Abogado"%>
+<%@page import="Modelo.Usuario"%>
 <!DOCTYPE html>
 <%
     HttpSession sesion = request.getSession();
-    Abogado usuario = (Abogado)sesion.getAttribute("Email");
+    Usuario usuario = (Usuario)sesion.getAttribute("Email");
     if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 

@@ -4,12 +4,12 @@
     Author     : nicol
 --%>
 
-<%@page import="Modelo.Abogado"%>
+<%@page import="Modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     HttpSession sesion = request.getSession();
-    Abogado usuario = (Abogado)sesion.getAttribute("Email");
+    Usuario usuario = (Usuario)sesion.getAttribute("Email");
     if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 
