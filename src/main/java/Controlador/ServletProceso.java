@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletProceso extends HttpServlet {
 
    private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/FormularioProceso.jsp";
+    private static String INSERT_OR_EDIT = "/CrearProceso.jsp";
     private static String LIST_PROCESO = "/ListaDeProcesos.jsp";
     private DAOProceso dao;
 
@@ -64,15 +64,10 @@ public class ServletProceso extends HttpServlet {
         proceso.setRazon_Social(request.getParameter("Razon_Social"));
         proceso.setId_Proceso(Integer.parseInt(request.getParameter("Id_Proceso")));
         
-//        if(doc_abogado == null || doc_abogado.isEmpty())
-//        {
+//        
             dao.addProceso(proceso);
-//        }
-//        else
-//        {
-//            abogado.setDoc_Abogado(Integer.parseInt(doc_abogado));
-//            dao.updateAbogado(abogado);
-//        }
+//        
+//        
        
         
         RequestDispatcher view = request.getRequestDispatcher(LIST_PROCESO);

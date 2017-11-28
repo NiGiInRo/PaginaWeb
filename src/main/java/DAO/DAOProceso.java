@@ -57,32 +57,7 @@ public class DAOProceso {
 			e.printStackTrace();
 		}
 	}
-	/*
-	public void updateAbogado(Abogado abogado) {
-		try {
-                    if(connection!=null){
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("update Abogado set Nombre_Abogado=?, Apellido_Abogado=?, Actividad=?, Email=?, Contraseña=?, Ciudad=?, Tipo_Doc=?" + 
-							"where Doc_Abogado=?");
-			// Parameters start with 1
-			preparedStatement.setInt(1, abogado.getDoc_Abogado());
-			preparedStatement.setString(2, abogado.getNombre_Abogado());
-			preparedStatement.setString(3, abogado.getApellido_Abogado());
-			preparedStatement.setString(4, abogado.isActividad());
-			preparedStatement.setString(5, abogado.getEmail());
-                        preparedStatement.setString(6, abogado.getContraseña());
-                        preparedStatement.setString(7, abogado.getCiudad());
-                        preparedStatement.setString(8, abogado.getTipo_Doc());
-			preparedStatement.executeUpdate();
-                    }
-                    else{
-                        System.out.println("No existe conexion");
-                    }
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-*/
+	
         
         public void UpdateProceso(Proceso q, int id) {
 		try {
