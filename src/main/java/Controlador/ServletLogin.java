@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -85,7 +85,7 @@ public class ServletLogin extends HttpServlet {
          //El usuario no a creado la sesion
           if(sesion != null){
             sesionUsuario.setAttribute("Email", sesion);
-            sesionUsuario.setMaxInactiveInterval(20);
+            sesionUsuario.setMaxInactiveInterval(360);
               System.out.println("ola");
             response.sendRedirect("PerfilDeUsuario.jsp");
           }else{

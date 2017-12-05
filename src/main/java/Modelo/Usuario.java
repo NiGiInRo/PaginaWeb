@@ -21,6 +21,12 @@ public class Usuario {
     private String Ciudad;
     private String Tipo_Doc;
 
+    public String getActividad() {
+        return Actividad;
+    }
+
+    
+    
     public int getDoc_Usuario() {
         return Doc_Usuario;
     }
@@ -45,9 +51,7 @@ public class Usuario {
         this.Apellido_Usuario = Apellido_Usuario;
     }
 
-    public String isActividad() {
-        return Actividad;
-    }
+   
 
     public void setActividad(String Actividad) {
         this.Actividad = Actividad;

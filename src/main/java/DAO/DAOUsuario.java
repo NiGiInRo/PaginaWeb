@@ -35,7 +35,7 @@ public class DAOUsuario {
                         preparedStatement.setInt(1, usuario.getDoc_Usuario());
                         preparedStatement.setString(2, usuario.getNombre_Usuario());
 			preparedStatement.setString(3, usuario.getApellido_Usuario());
-			preparedStatement.setString(4, usuario.isActividad());
+			preparedStatement.setString(4, usuario.getActividad());
 			preparedStatement.setString(5, usuario.getEmail());
                         preparedStatement.setString(6, usuario.getContrasena());
                         preparedStatement.setString(7, usuario.getCiudad());
@@ -218,10 +218,12 @@ public class DAOUsuario {
                 int id = rs.getInt("Doc_Usuario");
                 String login = rs.getString("Email");
                 String pass = rs.getString("Contrasena");
+                String act = rs.getString("Actividad");
                 Usuario sesion = new Usuario();
                 sesion.setEmail(login);
                 sesion.setContrasena(pass);
                 sesion.setDoc_Usuario(id);
+                sesion.setActividad(act);
                 System.out.println(sesion);
                 return sesion;
             } else {

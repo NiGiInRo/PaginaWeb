@@ -72,7 +72,7 @@ public class ServletProceso extends HttpServlet {
         proceso.setCiudad(request.getParameter("Ciudad"));
         proceso.setEstado_Proceso(request.getParameter("Estado_Proceso"));
         proceso.setRazon_Social(request.getParameter("Razon_Social"));
-        proceso.setId_Proceso(Integer.parseInt(request.getParameter("Id_Proceso")));
+      //  proceso.setId_Proceso(Integer.parseInt(request.getParameter("Id_Proceso")));
     
         proceso.setDoc_Usuario((_sesionUsuario.getDoc_Usuario()));
 

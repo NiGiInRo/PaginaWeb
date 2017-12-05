@@ -1,25 +1,33 @@
 <%-- 
-    Document   : ListaDeProcesos
+    Document   : ListaDeAbogados
     Created on : 18/11/2017, 12:55:47 AM
     Author     : nicol
 --%>
 
-<%@page import="Modelo.Proceso"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="Modelo.Usuario"%>
 <!DOCTYPE html>
 <%
    HttpSession sesion = request.getSession();
     Usuario usuario = (Usuario)sesion.getAttribute("Email");
+    String actividad  = usuario.getActividad();
    if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 
      // if(usuario.getDoc_Abogado()==4567){
 %>
+
+    <%
+            if(actividad.equals("Cliente")){
+     %>
 <br>
 <br>
 <br>
 <html lang="en">
+    
+
+    
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +47,7 @@
   <body>
 
       <% 
-            ArrayList<Proceso> esq= (ArrayList<Proceso>) request.getAttribute("procesos");
+            ArrayList<Usuario> esq= (ArrayList<Usuario>) request.getAttribute("usuarios");
             Integer vtotal = (Integer) request.getAttribute("total");
             int total = 0;
             if (vtotal == null) {
@@ -60,9 +68,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="PerfilDeUsuario.jsp">Perfil <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="CrearProceso.jsp">Crear Procesos <span class="sr-only">(current)</span></a>
-          </li>
+          
         <form class="form-inline mt-2 mt-md-0" action="ServletLogin" method="GET">
           <button class="btn btn-outline-success my-2 my-sm-0" href="index.jsp" type="submit">Cerrar Sesion.</button>
         </form>
@@ -71,31 +77,31 @@
       <br>
       <br>
     <div class="container">
-        <form method="POST" action="ServletTablaProcesos" name="frmAddUser">
+        <form method="POST" action="ServletTablaUsuario" name="frmAddUser">
       <div class="row row-offcanvas row-offcanvas-right">
 
        <table class="table table-striped" >
-           <%    if (request.getAttribute("procesos") != null) {
-                   ArrayList<Proceso> esqq = (ArrayList<Proceso>) request.getAttribute("procesos");
-                   for (Proceso e : esqq) {
+           <%    if (request.getAttribute("usuarios") != null  ) {
+                   ArrayList<Usuario> esqq = (ArrayList<Usuario>) request.getAttribute("usuarios") ;
+                   for (Usuario e : esqq) {
            %>
   <thead>
     <tr>
      
-      <th scope="col">Id Proceso</th>
-      <th scope="col">Nombre Proceso</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
       <th scope="col">Ciudad</th>
-      <th scope="col">Razon Social</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       
                                      
-      <td><%= e.getId_Proceso()%></td>
-      <td><%= e.getNombre_Proceso()%></td>
+      <td><%= e.getApellido_Usuario()%></td>
+      <td><%= e.getNombre_Usuario()%></td>
+      <td><%= e.getEmail()%></td>
       <td><%= e.getCiudad()%></td>
-      <td><%= e.getRazon_Social()%></td>
       
     </tr>
      <%
@@ -127,15 +133,21 @@
     <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="offcanvas.js"></script>
   </body>
+  <%
+            }else{
+          %>  
+          
+   <%
+            }
+          
+          %>
+
 </html>
 
-<%}//else{
+<%}
 %>
 
 
-<%
-// }
-//}
-%>
+
 
 

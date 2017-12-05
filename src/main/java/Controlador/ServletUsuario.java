@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -49,14 +50,19 @@ public class ServletUsuario extends HttpServlet {
             Usuario usuario = dao.getUsuariosbyId(Doc_Usuarios);
             request.setAttribute("usuario", usuario);
         } else if (action.equalsIgnoreCase("listUser")){
+        HttpSession sesionUsuario = request.getSession();
+        Usuario _sesionUsuario = (Usuario)sesionUsuario.getAttribute("Email");
             forward = LIST_USUARIO;
             request.setAttribute("usuarios", dao.getAllUsuario());
+            
+            RequestDispatcher rd = request.getRequestDispatcher("ListaDeAbogados.jsp");
+            rd.forward(request, response);
+            
         } else {
             forward = INSERT_OR_EDIT;
         }
 
-        RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
+         
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

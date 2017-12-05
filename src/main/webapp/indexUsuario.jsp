@@ -10,10 +10,11 @@
 <%
     HttpSession sesion = request.getSession();
     Usuario usuario = (Usuario)sesion.getAttribute("Email");
+    String actividad  = usuario.getActividad();
     if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 
-     // if(usuario.getDoc_Abogado()==4567){
+     //if(usuario.getActividad()== sesion.getAttribute("Actividad")){
 %>
 <html lang="en">
   <head>
@@ -23,7 +24,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Home</title>
+    <title>Off Canvas Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,12 +35,18 @@
 
   <body>
 
+      <%
+            if(actividad.equals("Abogado")){
+          %>  
+      
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="indexUsuario.jsp">LawWeb</a>
+      <a class="navbar-brand" href="indexUsuario.jsp">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      
+      
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           
@@ -50,7 +57,34 @@
             <a class="nav-link" href="CrearProceso.jsp">Crear Procesos <span class="sr-only">(current)</span></a>
           </li>
           
+          <%
+            }else{
+          %>  
+            
+           <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="indexUsuario.jsp">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      
+      
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="PerfilDeUsuario.jsp">Perfil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="ServletUsuario?action=listUser">Lista Abogados <span class="sr-only">(current)</span></a>
+          </li>
+        
+          <%
+            }
+          
+          %>
+
+          
         </ul>
         <form class="form-inline mt-2 mt-md-0" action="ServletLogin" method="GET">
           <button class="btn btn-outline-success my-2 my-sm-0" href="index.jsp" type="submit">Cerrar Sesion.</button>

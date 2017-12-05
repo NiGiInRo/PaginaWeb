@@ -53,7 +53,18 @@ public class ServletTablaUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        try {
+    
+            
+      
+    }
+
+   
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
+        
+            try {
             ArrayList<Usuario> lista = null;
             DAOUsuario use;
             
@@ -63,8 +74,7 @@ public class ServletTablaUsuario extends HttpServlet {
               
             request.setAttribute("usuarios", lista);
                    
-            RequestDispatcher rd = request.getRequestDispatcher("PerfilUsuario.jsp");
-            rd.forward(request, response);
+           
         } catch (SQLException ex) {
             Logger.getLogger(ServletTablaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -74,15 +84,7 @@ public class ServletTablaUsuario extends HttpServlet {
         } catch (IllegalAccessException ex) {
             Logger.getLogger(ServletTablaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-      
-    }
-
-   
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

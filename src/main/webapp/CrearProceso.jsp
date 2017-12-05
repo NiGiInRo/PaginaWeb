@@ -3,7 +3,11 @@
 <%
     HttpSession sesion = request.getSession();
     Usuario usuario = (Usuario)sesion.getAttribute("Email");
-    if( usuario == null){
+    
+    String actividad = usuario.getActividad();
+    
+   
+    if( usuario == null || !actividad.equals("Abogado") ){
       response.sendRedirect("index.jsp");
     }else{ 
      // if(usuario.getDoc_Abogado()==4567){
@@ -16,7 +20,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>LawWeb: Crea un proceso.</title>
+    <title>Off Canvas Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +33,7 @@
   <body>
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="indexUsuario.jsp">LawWeb</a>
+      <a class="navbar-brand" href="indexUsuario.jsp">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,11 +70,7 @@
           <div class="row">
               <form method="POST" action="ServletProceso" name="frmAddUser">
                  
-                   <div class="form-group">
-                      <label for="exampleInputEmail1">Numero del Proceso</label>
-                      <input type="text" name="Id_Proceso" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Num.Identificacion">
-                      
-                  </div>
+                  
                   
                   <div class="form-group">
                       <label for="exampleInputEmail1">Nombre del Proceso:</label>

@@ -3,6 +3,7 @@
 <%
     HttpSession sesion = request.getSession();
     Usuario usuario = (Usuario)sesion.getAttribute("Email");
+    String actividad  = usuario.getActividad();
     if( usuario == null){
       response.sendRedirect("index.jsp");
     }else{ 
@@ -16,7 +17,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>LawWeb: Perfil.</title>
+    <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +32,7 @@
       <br>
       
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="indexUsuario.jsp">LawWeb</a>
+      <a class="navbar-brand" href="#">Carousel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,10 +40,27 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="indexUsuario.jsp">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
+          </li
+          <%
+            if(actividad.equals("Abogado")){
+          %>  
+            
+               <li class="nav-item">
             <a class="nav-link" href="CrearProceso.jsp">Crear Procesos</a>
           </li>
+          
+          <%
+            }else{
+          %>  
+            
+            <li class="nav-item">
+            <a class="nav-link" href="ServletUsuario?action=listUser" value="Lista Abogados ">Lista Abogados</a>
+          </li>
+        
+          <%
+            }
+          
+          %>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
